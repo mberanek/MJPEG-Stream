@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+A Flutter package for streaming MJPEG (Motion JPEG) video over HTTP

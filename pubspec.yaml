@@ -1,16 +1,17 @@
 name: mjpeg_stream
-description: "A new Flutter package project."
+description: "A Flutter package for streaming MJPEG (Motion JPEG) video over HTTP"
 version: 0.0.1
-homepage:
+homepage: https://github.com/MohammedShamseerPV/MJPEG-Stream/  
+license: MIT
 
-environment:
+environment: 
   sdk: '>=3.3.1 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  http: 
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
