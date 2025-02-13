@@ -113,39 +113,33 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("MJPEG Stream"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          if (errorState.value != null)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '${errorState.value}',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.red),
-              ),
+    return Column(
+      children: [
+        if (errorState.value != null)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${errorState.value}',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.red),
             ),
-          ValueListenableBuilder<MemoryImage?>(
-            valueListenable: image,
-            builder: (context, currentImage, child) {
-              if (currentImage == null) {
-                return Center(child: CircularProgressIndicator());
-              }
-              return Image(
-                image: currentImage,
-                width: widget.width,
-                height: widget.height,
-                gaplessPlayback: true,
-                fit: widget.fit,
-              );
-            },
           ),
-        ],
-      ),
+        ValueListenableBuilder<MemoryImage?>(
+          valueListenable: image,
+          builder: (context, currentImage, child) {
+            if (currentImage == null) {
+              return Center(child: CircularProgressIndicator());
+            }
+            return Image(
+              image: currentImage,
+              width: widget.width,
+              height: widget.height,
+              gaplessPlayback: true,
+              fit: widget.fit,
+            );
+          },
+        ),
+      ],
     );
   }
 }
