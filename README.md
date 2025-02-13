@@ -8,8 +8,8 @@
 Welcome to **MJPEG Stream Flutter Package**! 🚀 This package allows you to stream MJPEG video in your Flutter application easily. Perfect for real-time camera feeds and IP camera streaming. 📷🎥
 
 
-![screen2](https://github.com/user-attachments/assets/570e1da7-6df2-4ede-81d9-dbb7f1b4259b){:height="300px" width="400px"}
-![screen1](https://github.com/user-attachments/assets/81de7451-4d66-410e-a58b-b37ccd530ef1){:height="300px" width="400px"}
+![screen2](https://github.com/user-attachments/assets/570e1da7-6df2-4ede-81d9-dbb7f1b4259b){:height="100px" width="200px"}
+![screen1](https://github.com/user-attachments/assets/81de7451-4d66-410e-a58b-b37ccd530ef1){:height="100px" width="200px"}
 
 
 
