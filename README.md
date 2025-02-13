@@ -48,8 +48,12 @@ dependencies:
 
 OR 
 
-```sh
-flutter pub add mjpeg_stream
+```yaml
+mjpeg_stream:
+    git:  
+      url: https://github.com/MohammedShamseerPV/MJPEG-Stream.git
+      ref: main  # Optional: specify the branch (default is 'main')
+
 ```
 
 Then, run:
