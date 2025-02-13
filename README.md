@@ -1,10 +1,20 @@
 # 📸 MJPEG Stream Flutter Package
 
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![mjpegLogo1](https://github.com/user-attachments/assets/56b12d4c-f7d4-4379-ba0c-ba673acb6ba1)
+
 
 
 Welcome to **MJPEG Stream Flutter Package**! 🚀 This package allows you to stream MJPEG video in your Flutter application easily. Perfect for real-time camera feeds and IP camera streaming. 📷🎥
+
+
+![screen2](https://github.com/user-attachments/assets/570e1da7-6df2-4ede-81d9-dbb7f1b4259b)
+![screen1](https://github.com/user-attachments/assets/81de7451-4d66-410e-a58b-b37ccd530ef1)
+
+
+https://github.com/user-attachments/assets/29f279d0-f022-4984-b6a2-f319e316af61
+
+
 
 ## 🌟 Features
 - 📡 Live MJPEG streaming
@@ -38,7 +48,7 @@ dependencies:
 
 OR 
 
-```yaml
+```sh
 flutter pub add mjpeg_stream
 ```
 
@@ -180,5 +190,12 @@ This package is open-source under the MIT License. Feel free to contribute! 😊
 
 ## 💰 Support My Work
 If you found this package useful, consider supporting my work:
+
+![qr-code-phonePay](https://github.com/user-attachments/assets/c973da24-bddf-4c8b-9c25-9126e196e9eb)
+
+![Uploading qr-code-phonePay.png…]()
+
+
+
 
 
