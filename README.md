@@ -10,17 +10,20 @@ Welcome to **MJPEG Stream Flutter Package**! 🚀 This package allows you to str
 
 
 
-<video width="640" height="360" autoplay controls>
-    <source src="https://github.com/user-attachments/assets/29f279d0-f022-4984-b6a2-f319e316af61" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
 
 
-<p> <img src="https://github.com/user-attachments/assets/570e1da7-6df2-4ede-81d9-dbb7f1b4259b" width="70%" height="40%"></p> 
+
+https://github.com/user-attachments/assets/c908688e-3cd0-45bc-a21b-359df1eac6a5
+
+
+
+
 
 <p> <img src="https://github.com/user-attachments/assets/81de7451-4d66-410e-a58b-b37ccd530ef1" width="70%" height="40%"></p> 
 
+![screen4](https://github.com/user-attachments/assets/9c241999-e802-4a4c-b8a9-bcc227b1349b)
 
+![screen3](https://github.com/user-attachments/assets/a41a88dd-f353-4ba9-a6c2-7de59102840d)
 
 ## 🌟 Features
 - 📡 Live MJPEG streaming
