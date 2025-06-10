@@ -8,7 +8,6 @@ import 'package:http/http.dart';
 
 import 'mjpeg_stream_processor.dart';
 
-
 class MJPEGStreamScreen extends StatefulWidget {
   final String streamUrl;
   final BoxFit fit;
@@ -149,19 +148,21 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
     _startStream();
   }
 
-void _sendImage(List<int> chunks) {
-  final List<int>? imageData = preprocessor.process(chunks);
-  if (imageData != null) {
-    // Check if the frame has valid JPEG data
-    if (imageData.length > 10 && imageData[0] == 0xFF && imageData[1] == 0xD8 && imageData.last == 0xD9) {
-      image.value = MemoryImage(Uint8List.fromList(imageData));
-      if (widget.showLogs) print("Image processed and updated.");
-    } else {
-      if (widget.showLogs) print("Invalid JPEG frame detected.");
+  void _sendImage(List<int> chunks) {
+    final List<int>? imageData = preprocessor.process(chunks);
+    if (imageData != null) {
+      // Check if the frame has valid JPEG data
+      if (imageData.length > 10 &&
+          imageData[0] == 0xFF &&
+          imageData[1] == 0xD8 &&
+          imageData.last == 0xD9) {
+        image.value = MemoryImage(Uint8List.fromList(imageData));
+        if (widget.showLogs) print("Image processed and updated.");
+      } else {
+        if (widget.showLogs) print("Invalid JPEG frame detected.");
+      }
     }
   }
-}
-
 
   // Toggle blur effect
   void _toggleBlur() {
@@ -233,12 +234,10 @@ void _sendImage(List<int> chunks) {
                         isAntiAlias: true,
                         filterQuality: FilterQuality.high,
                         image: currentImage!,
-                        
                         width: widget.width,
                         height: widget.height,
                         fit: widget.fit,
                         gaplessPlayback: true,
-
                       ),
                     ),
                   ),
@@ -329,7 +328,7 @@ void _sendImage(List<int> chunks) {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      'LIVE',
+                      'LIVETEST',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
