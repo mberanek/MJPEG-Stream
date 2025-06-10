@@ -317,7 +317,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
           ValueListenableBuilder<bool>(
             valueListenable: showLiveIcon,
             builder: (context, showLive, child) {
-              if (showLive) {
+              if (showLive && widget.showLiveIcon) {
                 return Positioned(
                   top: 10,
                   right: 10,
@@ -328,7 +328,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      'LIVETEST',
+                      'LIVE',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
