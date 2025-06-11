@@ -115,27 +115,33 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
           }
         }, onError: (error, stack) {
           if (widget.showLogs) print("Stream error: $error");
-          errorState.value = [error, stack];
-          image.value = null;
-          showLiveIcon.value = false;
-          showLodingIndicator.value = false;
+          if (mounted) {
+            errorState.value = [error, stack];
+            image.value = null;
+            showLiveIcon.value = false;
+            showLodingIndicator.value = false;
+          }
         }, cancelOnError: true);
       } else {
         if (widget.showLogs)
           print('Stream returned error status: ${response.statusCode}');
-        errorState.value = [
-          HttpException('Stream returned ${response.statusCode} status')
-        ];
+        if (mounted) {
+          errorState.value = [
+            HttpException('Stream returned ${response.statusCode} status')
+          ];
+          image.value = null;
+          showLiveIcon.value = false;
+          showLodingIndicator.value = false;
+        }
+      }
+    } catch (error, stack) {
+      if (widget.showLogs) print("Error during HTTP request: $error");
+      if (mounted) {
+        errorState.value = [error, stack];
         image.value = null;
         showLiveIcon.value = false;
         showLodingIndicator.value = false;
       }
-    } catch (error, stack) {
-      if (widget.showLogs) print("Error during HTTP request: $error");
-      errorState.value = [error, stack];
-      image.value = null;
-      showLiveIcon.value = false;
-      showLodingIndicator.value = false;
     }
   }
 
