@@ -210,7 +210,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.error_outline, color: Colors.red, size: 40),
+                      Icon(Icons.error_outline, color: Colors.red, size: 30),
                       SizedBox(height: 10),
                       Text(
                         textAlign: TextAlign.center,
@@ -219,7 +219,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                             : 'Stream Error',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 15),
@@ -304,7 +304,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.error_outline, color: Colors.red, size: 40),
+                      Icon(Icons.error_outline, color: Colors.red, size: 30),
                       SizedBox(height: 10),
                       Text(
                         textAlign: TextAlign.center,
@@ -313,7 +313,7 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                             : 'Stream Error',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 15),
