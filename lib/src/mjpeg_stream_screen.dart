@@ -207,41 +207,6 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                       );
                     }
 
-                    if (errorState.value != null) {
-                      return Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.error_outline,
-                                color: Colors.red, size: 30),
-                            SizedBox(height: 10),
-                            Text(
-                              textAlign: TextAlign.center,
-                              widget.czechLocalization
-                                  ? "Nepodařilo se načíst obraz kamery"
-                                  : 'Stream Error',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 15),
-                            CupertinoButton(
-                              onPressed: _reloadStream,
-                              child: Text(widget.czechLocalization
-                                  ? "Zkusit znovu"
-                                  : "Retry"),
-                              color: CupertinoColors.activeBlue,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-
                     return Stack(
                       alignment: Alignment.center,
                       children: [
