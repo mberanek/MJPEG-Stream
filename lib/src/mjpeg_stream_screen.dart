@@ -195,110 +195,103 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
           ValueListenableBuilder<MemoryImage?>(
             valueListenable: image,
             builder: (context, currentImage, child) {
-              return ValueListenableBuilder<bool?>(
-                  valueListenable: showLodingIndicator,
-                  builder: (context, showLoading, child) {
-                    if (currentImage == null && errorState.value == null) {
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2.5,
-                        ),
-                      );
-                    }
+              if (currentImage == null && errorState.value == null) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2.5,
+                  ),
+                );
+              }
 
-                    if (errorState.value != null) {
-                      return Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.error_outline,
-                                color: Colors.red, size: 30),
-                            SizedBox(height: 10),
-                            Text(
-                              textAlign: TextAlign.center,
-                              widget.czechLocalization
-                                  ? "Nepodařilo se načíst obraz kamery"
-                                  : 'Stream Error',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 15),
-                            CupertinoButton(
-                              onPressed: _reloadStream,
-                              child: Text(widget.czechLocalization
-                                  ? "Zkusit znovu"
-                                  : "Retry"),
-                              color: CupertinoColors.activeBlue,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
+              if (errorState.value != null) {
+                return Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.error_outline, color: Colors.red, size: 30),
+                      SizedBox(height: 10),
+                      Text(
+                        textAlign: TextAlign.center,
+                        widget.czechLocalization
+                            ? "Nepodařilo se načíst obraz kamery"
+                            : 'Stream Error',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 15),
+                      CupertinoButton(
+                        onPressed: _reloadStream,
+                        child: Text(widget.czechLocalization
+                            ? "Zkusit znovu"
+                            : "Retry"),
+                        color: CupertinoColors.activeBlue,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ],
+                  ),
+                );
+              }
 
-                    return Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(widget.borderRadius!),
-                            child: Image(
-                              isAntiAlias: true,
-                              filterQuality: FilterQuality.high,
-                              image: currentImage!,
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(widget.borderRadius!),
+                      child: Image(
+                        isAntiAlias: true,
+                        filterQuality: FilterQuality.high,
+                        image: currentImage!,
+                        width: widget.width,
+                        height: widget.height,
+                        fit: widget.fit,
+                        gaplessPlayback: true,
+                      ),
+                    ),
+                  ),
+                  ValueListenableBuilder<bool>(
+                    valueListenable: blurSensitiveContent,
+                    builder: (context, blur, child) {
+                      if (blur && widget.blurSensitiveContent) {
+                        return ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(widget.borderRadius!),
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                            child: Container(
                               width: widget.width,
                               height: widget.height,
-                              fit: widget.fit,
-                              gaplessPlayback: true,
-                            ),
-                          ),
-                        ),
-                        ValueListenableBuilder<bool>(
-                          valueListenable: blurSensitiveContent,
-                          builder: (context, blur, child) {
-                            if (blur && widget.blurSensitiveContent) {
-                              return ClipRRect(
-                                borderRadius:
-                                    BorderRadius.circular(widget.borderRadius!),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                      sigmaX: 5.0, sigmaY: 5.0),
-                                  child: Container(
-                                    width: widget.width,
-                                    height: widget.height,
-                                    child: CupertinoButton(
-                                      onPressed: _toggleBlur,
-                                      child: CircleAvatar(
-                                        backgroundColor:
-                                            Color.fromARGB(44, 255, 255, 255),
-                                        child: Icon(
-                                          blurSensitiveContent.value
-                                              ? Icons.visibility_off
-                                              : Icons.visibility,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      padding: EdgeInsets.all(10),
-                                      color: Colors.black.withOpacity(0.5),
-                                    ),
-                                    color: Colors.black.withOpacity(0.3),
+                              child: CupertinoButton(
+                                onPressed: _toggleBlur,
+                                child: CircleAvatar(
+                                  backgroundColor:
+                                      Color.fromARGB(44, 255, 255, 255),
+                                  child: Icon(
+                                    blurSensitiveContent.value
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                    color: Colors.white,
                                   ),
                                 ),
-                              );
-                            }
-                            return SizedBox();
-                          },
-                        ),
-                      ],
-                    );
-                  });
+                                padding: EdgeInsets.all(10),
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                              color: Colors.black.withOpacity(0.3),
+                            ),
+                          ),
+                        );
+                      }
+                      return SizedBox();
+                    },
+                  ),
+                ],
+              );
             },
           ),
           ValueListenableBuilder<List<dynamic>?>(
