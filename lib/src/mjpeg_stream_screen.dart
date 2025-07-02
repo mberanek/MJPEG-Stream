@@ -24,6 +24,7 @@ class MJPEGStreamScreen extends StatefulWidget {
   final bool blurSensitiveContent;
 
   final double? borderRadius;
+  final bool czechLocalization;
 
   MJPEGStreamScreen({
     required this.streamUrl,
@@ -40,6 +41,7 @@ class MJPEGStreamScreen extends StatefulWidget {
     this.watermarkWidget,
     required this.showLiveIcon,
     this.blurSensitiveContent = false,
+    this.czechLocalization = false,
   });
 
   @override
@@ -205,12 +207,16 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
               if (errorState.value != null) {
                 return Center(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(Icons.error_outline, color: Colors.red, size: 40),
                       SizedBox(height: 10),
                       Text(
-                        'Stream Error',
+                        textAlign: TextAlign.center,
+                        widget.czechLocalization
+                            ? "Nepodařilo se načíst obraz kamery"
+                            : 'Stream Error',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -219,7 +225,9 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                       SizedBox(height: 15),
                       CupertinoButton(
                         onPressed: _reloadStream,
-                        child: Text("Retry"),
+                        child: Text(widget.czechLocalization
+                            ? "Zkusit znovu"
+                            : "Retry"),
                         color: CupertinoColors.activeBlue,
                         padding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -293,12 +301,16 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                 return Container(
                   padding: EdgeInsets.all(12),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(Icons.error_outline, color: Colors.red, size: 40),
                       SizedBox(height: 10),
                       Text(
-                        'Stream Error',
+                        textAlign: TextAlign.center,
+                        widget.czechLocalization
+                            ? "Nepodařilo se načíst obraz kamery"
+                            : 'Stream Error',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -307,7 +319,9 @@ class _MJPEGStreamScreenState extends State<MJPEGStreamScreen> {
                       SizedBox(height: 15),
                       CupertinoButton(
                         onPressed: _reloadStream,
-                        child: Text("Retry"),
+                        child: Text(widget.czechLocalization
+                            ? "Zkusit znovu"
+                            : "Retry"),
                         color: CupertinoColors.activeBlue,
                         padding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 20),
